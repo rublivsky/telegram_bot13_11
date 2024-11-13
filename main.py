@@ -1,1 +1,2 @@
-from config import telegram_token
+import asyncio
+import aiogram
