@@ -1,12 +1,10 @@
 import asyncio
 import logging
-from aiogram import Bot, Dispatcher, types
-from aiogram.filters.command import Command
-from aiogram.types import Message
+from aiogram import Bot, Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
 
-from handler import router
-from config import TOKEN
+from handlers.handler import router
+from handlers.config import TOKEN
 
 logging.basicConfig(level=logging.INFO)
 
