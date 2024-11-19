@@ -6,7 +6,8 @@ from aiogram.filters import Command
 from aiogram import Router
 from aiogram.types import Message
 
-from bot import router, DOWNLOAD_PATH, bot
+from bot import router, bot
+from config import DOWNLOAD_PATH
 
 async def download_video(url, path):
     options = {
@@ -36,3 +37,7 @@ async def handle_video_link(message: types.Message):
     with open(video_path, "rb") as video_file:
         video_input = InputFile(video_file)
         await bot.send_video(message.chat.id, video=video_input, caption="Ваше видео!")
+
+@router.message(Command("file"))
+async def send_file(message: types.Message):
+    pass
