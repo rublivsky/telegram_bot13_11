@@ -1,5 +1,5 @@
 import asyncio
-from aiogram.types import InputFile, Message, FSInputFile
+from aiogram.types import InputFile, Message, FSInputFile, URLInputFile
 from aiogram.filters import Command
 from aiogram import Bot, Dispatcher, types
 import logging
@@ -62,6 +62,12 @@ async def start(message: types.Message):
         caption="Изображение из файла на компьютере"
     )
 
+    image_from_url = URLInputFile("https://picsum.photos/seed/groosha/400/300")
+    result = await message.answer_photo(
+        image_from_url,
+        caption="Изображение по ссылке"
+    )
+    
 async def main():
     await dp.start_polling(bot)
 
